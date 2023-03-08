@@ -204,3 +204,94 @@ const obj2 = {
 }
 
 obj2.saluta()
+
+const calculateAreaImproved = function (l1, l2) {
+  let area = l1 * l2
+  return area
+}
+
+console.log(calculateAreaImproved(16, 17))
+console.log(calculateAreaImproved(43, 12))
+
+let animals = ['tiger', 'cat', 'dog', 'elephant']
+
+console.log(animals[3])
+animals.push('hamster')
+// push aggiunge IN CODA all'array uno o più elementi
+console.log(animals.length)
+// console.log(animals.shift()) // 'tiger'
+console.log(animals[0])
+animals.reverse()
+console.log(animals.slice(1))
+console.log(animals)
+
+// 3 metodi degli array nuovi di ES6
+let filteredAnimals = animals.filter(function (animal) {
+  return animal.length === 3
+})
+console.log('filteredAnimals', filteredAnimals)
+
+let mappedAnimals = animals.map((animal) => animal.toUpperCase())
+console.log('mappedAnimals', mappedAnimals)
+
+// t i g e r
+let foundAnimal = animals.find((animal) => animal.slice(0, 1) === 'e')
+console.log('foundAnimal', foundAnimal)
+
+// NOVITA ES6 IN GENERALE
+
+let x = 30
+let y = x
+
+y = y + 10
+// 40
+console.log(y)
+console.log(x)
+
+let objX = {
+  type: 'dog',
+  breed: 'corgi',
+}
+
+let objY = objX
+// JS NON CREA UN NUOVO OGGETTO!!!
+
+objY.breed = 'golden'
+
+console.log(objX.breed)
+// ???
+
+// metodi funzionanti per clonare un oggetto
+let objXX = {
+  type: 'dog',
+  breed: 'corgi',
+}
+
+// 1) OBJECT.ASSIGN()
+let objYY = Object.assign({}, objXX)
+// primo parametro di assign: target, un nuovo oggetto vuoto
+// abbiamo ora creato un oggetto completamente diverso
+objYY.breed = 'golden'
+console.log(objXX.breed)
+
+// 2) SPREAD OPERATOR
+let objXXX = {
+  type: 'dog',
+  breed: 'corgi',
+}
+
+let objYYY = { ...objXXX }
+objYYY.breed = 'golden'
+console.log(objXXX.breed)
+
+let arrayX = [1, 2, 3]
+let arrayY = arrayX
+
+arrayX.shift()
+console.log(arrayY)
+
+let arrayXX = [1, 2, 3]
+let arrayYY = [...arrayXX] // questa è una vera copia separata
+
+arrayXX.shift()
+console.log(arrayYY)
